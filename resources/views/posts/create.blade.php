@@ -16,11 +16,12 @@
                 @endif
 
 
+
                 <div class="form-group">
                     <label for="title">
                         Title
                     </label>
-                    <input type="text" class="form-control" name="title" id="title" value="{{isset($post)?$post->title:''}}">
+                    <input type="text" class="form-control" name="title" id="title" value="{{isset($post)?$post->title:old('title')}}">
                 </div>
 
                 <div class="form-group">
@@ -29,7 +30,7 @@
                     </label>
 
 
-                    <input id="description" type="hidden" name="description" value="{{isset($post)?$post->description:''}}">
+                    <input id="description" type="hidden" name="description" value="{{isset($post)?$post->description:old('description')}}">
                     <trix-editor input="description"></trix-editor>
 
                 </div>
@@ -47,7 +48,7 @@
                     <label for="published_at">
                         Published At
                     </label>
-                    <input type="text" class="form-control" name="published_at" id="published_at" value="{{isset($post)?$post->published_at:''}}">
+                    <input type="text" class="form-control" name="published_at" id="published_at" value="{{isset($post)?$post->published_at:old('published_at')}}">
                 </div>
 
                 @if(isset($post))
@@ -68,13 +69,21 @@
                     <select name="category" id="category" class="form-control">
 
                         @foreach($categories as $category)
-                            <option value="{{$category->id}}"
 
-                                @if(isset($post))
-                                    @if($category->id===$post->category_id)
+                            <option
+
+                                    value="{{$category->id}}"
+
+                                    @if($category->id===intval(old('category')))
                                         selected
                                     @endif
-                                @endif
+
+
+                                    @if(isset($post))
+                                        @if($category->id===$post->category_id)
+                                            selected
+                                        @endif
+                                    @endif
 
                             >{{$category->name}}</option>
                         @endforeach
