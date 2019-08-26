@@ -15,4 +15,11 @@ class siteInfomationController extends Controller
 
     }
 
+    public function contact(){
+
+//        return 'this is about';
+        return view('blog.contact');
+
+    }
+
 }

@@ -41,7 +41,7 @@ favicon.png')}}">
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">联系同乡会</a>
+                    <a class="nav-link" href="{{route('contact-page')}}">联系同乡会</a>
                 </li>
 
 

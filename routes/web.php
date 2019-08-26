@@ -26,6 +26,8 @@ Route::get('/tag/{tag}',[PostsController::class,'tag'])->name('blog.tag');
 
 Route::get('/about', [siteInfomationController::class,'about'])->name('about-page');
 
+Route::get('/contact', [siteInfomationController::class,'contact'])->name('contact-page');
+
 
 
 Route::middleware(['auth'])->group(function (){
